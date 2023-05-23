@@ -6,9 +6,13 @@
 .homepage__nav{
     flex: 0.2;
     height: 100vh;
+    border-right: 1px solid gray;
 
 }
 
 .homepage__timeline{
     flex: 0.8;
 }
+
+
+

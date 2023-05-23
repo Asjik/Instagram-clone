@@ -7,6 +7,7 @@ import Timeline from '../Timeline/Timeline';
 function HomePage() {
 return (
     <div className='homepage'>
+        
         <div className='homepage__nav'>
             <SideNav/>
         </div>

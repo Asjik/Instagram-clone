@@ -3,3 +3,57 @@ html{
   color: white;
 }
 
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loader {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* media qeries  */
+
+@media (max-width: 1263px){
+  .sidenav__buttons span{
+    visibility: hidden;
+  }
+  .story__item{
+    width: 35px;
+    height: 35px;
+  }
+  
+}
+
+@media (max-width: 1159px){
+  .suggestions{
+    visibility: hidden;
+  }
+  .timeline__left{
+    width:100%;
+  }
+  .timeline__right{
+    width: 0;
+  }
+  .story__item{
+    width: 35px;
+    height: 35px;
+  }
+}
