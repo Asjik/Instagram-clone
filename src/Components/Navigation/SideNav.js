@@ -24,7 +24,7 @@ function SideNav() {
   };
   //nawigacja
   const navigateHome = useNavigate();
-  const handleClickHome = () => navigateHome("/Home");
+  const handleClickHome = () => navigateHome("/");
   const navigateExplore = useNavigate();
   const handleClickExplore = () => navigateExplore("/Explore");
 
