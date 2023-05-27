@@ -11,3 +11,24 @@
 .homepage__timeline {
   flex: 0.8;
 }
+
+@media (max-width: 1263px) {
+  .homepage__nav {
+    flex: 0.1;
+  }
+
+  .homepage__timeline {
+    flex: 0.9;
+    margin: auto;
+  }
+}
+
+@media (max-width: 1159px) {
+  .homepage__nav {
+    flex: 0.1;
+  }
+  .homepage__timeline {
+    flex: 0.9;
+    margin: auto;
+  }
+}

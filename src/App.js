@@ -5,7 +5,6 @@ import HomePage from "./Components/HomePage/HomePage";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "./firebase";
 import { loginUser, setLoading } from "./features/userSlice";
-//import Gallery from './Components/Gallery/Gallery';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Gallery from "./Components/Gallery/Gallery";
 
@@ -37,13 +36,14 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/Explore" element={<Gallery />} />
+            <Route path="/LogIn" element={<Authetication />} />
           </Routes>
         </div>
       </Router>
 
       {/* {isLoading ? (
-        <div class="loader-container">
-          <div class="loader"></div>
+        <div className="loader-container">
+          <div className="loader"></div>
         </div>
       ) : (
         <>{user ? <HomePage /> : <Authetication />}</>

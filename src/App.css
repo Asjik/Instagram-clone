@@ -35,11 +35,6 @@ html{
   .sidenav__buttons span{
     visibility: hidden;
   }
-  .story__item{
-    width: 35px;
-    height: 35px;
-  }
-  
 }
 
 @media (max-width: 1159px){
@@ -51,9 +46,5 @@ html{
   }
   .timeline__right{
     width: 0;
-  }
-  .story__item{
-    width: 35px;
-    height: 35px;
   }
 }
