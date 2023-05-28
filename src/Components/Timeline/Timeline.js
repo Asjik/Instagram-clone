@@ -19,7 +19,7 @@ function Timeline() {
       <div className="timeline__left">
         <div className="timeline__story">
           {characters.results.slice(0, 8).map((post, index) => (
-            <Story stroryImage={post} key={index}/>
+            <Story stroryImage={post} key={index} />
           ))}
         </div>
         <div className="timeline_posts">

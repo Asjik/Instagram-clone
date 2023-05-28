@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useInfiniteQuery } from "react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 export const useCharacter = () => {
   const { data, error, fetchNextPage, status, hasNextPage } = useInfiniteQuery(
