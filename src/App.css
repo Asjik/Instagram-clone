@@ -1,4 +1,4 @@
-html{
+html {
   background-color: black;
   color: white;
 }
@@ -28,23 +28,25 @@ html{
   }
 }
 
-
 /* media qeries  */
 
-@media (max-width: 1263px){
-  .sidenav__buttons span{
+@media (max-width: 1263px) {
+  .sidenav__buttons span {
+    visibility: hidden;
+  }
+  .sidenav__more span {
     visibility: hidden;
   }
 }
 
-@media (max-width: 1159px){
-  .suggestions{
+@media (max-width: 1159px) {
+  .suggestions {
     visibility: hidden;
   }
-  .timeline__left{
-    width:100%;
+  .timeline__left {
+    width: 100%;
   }
-  .timeline__right{
+  .timeline__right {
     width: 0;
   }
 }

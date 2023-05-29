@@ -21,12 +21,15 @@ function SideNav() {
   const handleLogOut = () => {
     dispatch(logoutUser());
     signOut(auth);
+    handleClickLogout();
   };
   //nawigacja
   const navigateHome = useNavigate();
   const handleClickHome = () => navigateHome("/");
   const navigateExplore = useNavigate();
   const handleClickExplore = () => navigateExplore("/Explore");
+  const navigateLogout = useNavigate();
+  const handleClickLogout = () => navigateLogout("/LogIn");
 
   const breakpoint = 1159;
   let srcImage = "";
@@ -51,9 +54,7 @@ function SideNav() {
     function handleWindowResize() {
       setWindowSize(getWindowSize());
     }
-
     window.addEventListener("resize", handleWindowResize);
-
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
@@ -98,15 +99,17 @@ function SideNav() {
           <span>Create</span>
         </button>
 
-        <button className="sidenav__button">
-          {/* <Avatar>{user.userName ? user.userName.charAt(0).toUpperCase() : 'A'}</Avatar> */}
+        <span className="sidenav__button">
+          <Avatar>
+            {/* {user.userName ? user.userName.charAt(0).toUpperCase() : "A"} */}
+          </Avatar>
           <span>
-            {/* {user.userName} */}
+            {user ? user.userName : "user name"}
             <button onClick={handleLogOut} className="logout__button">
               Log out
             </button>
           </span>
-        </button>
+        </span>
       </div>
       <div className="sidenav__more">
         <button className="sidenav__button">

@@ -6,11 +6,15 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../../firebase";
+import { useNavigate} from "react-router-dom";
 
 function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
+
+  const navigateSignup = useNavigate();
+  const handleClickSignup = () => navigateSignup("/");
 
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -20,7 +24,9 @@ function SignUp() {
           updateProfile(auth.currentUser, {
             displayName: userName,
           })
+          
         );
+        handleClickSignup()
       })
       .catch((err) => {
         alert(err);

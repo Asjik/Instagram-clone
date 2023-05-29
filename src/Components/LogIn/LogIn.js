@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import "./LogIn.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import { useNavigate} from "react-router-dom";
 
 function LogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigateLogin = useNavigate();
+  const handleClickLogin = () => navigateLogin("/");
 
   const handleLogIn = () => {
     signInWithEmailAndPassword(auth, email, password);
+    handleClickLogin();
   };
 
   return (

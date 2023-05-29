@@ -1,8 +1,10 @@
 import React from "react";
 import "./Suggestions.css";
 import { Avatar } from "@mui/material";
+import { useSelector } from "react-redux";
 
 function Suggestions() {
+  const user = useSelector((state) => state.data.user.user);
   return (
     <div className="suggestions">
       <div className="suggestions__userlogged">
@@ -11,8 +13,8 @@ function Suggestions() {
             <Avatar></Avatar>
           </span>
           <div className="userName__info">
-            <span className="userName">Logged user</span>
-            <span className="info"> user name</span>
+            <span className="userName">{user ? user.email : "User"}</span>
+            <span className="info"> {user ? user.userName : "user name"}</span>
           </div>
         </div>
       </div>
