@@ -1,6 +1,6 @@
 import React from "react";
 import "./Suggestions.css";
-import { Avatar } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
 import { useSelector } from "react-redux";
 
 function Suggestions() {

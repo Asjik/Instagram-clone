@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 export const useCharacter = () => {
-  const { data, error, fetchNextPage, status, hasNextPage } = useInfiniteQuery(
+  const { data, error, fetchNextPage, isError, isLoading, hasNextPage } = useInfiniteQuery(
     ["characters"],
     ({ pageParam = 1 }) =>
       fetch(
@@ -35,7 +35,8 @@ export const useCharacter = () => {
   return {
     error,
     fetchNextPage,
-    status,
+    isError,
+    isLoading,
     hasNextPage,
     characters,
     data,

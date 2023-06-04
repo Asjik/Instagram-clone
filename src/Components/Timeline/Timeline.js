@@ -8,37 +8,43 @@ import Story from "./Story";
 
 function Timeline() {
   //// Infinite Posts
-  const { characters, error, fetchNextPage, hasNextPage, status } =
+  const { characters, error, fetchNextPage, hasNextPage, isError, isLoading } =
     useCharacter();
-  if (status === "loading") return <Loading />;
 
-  if (status === "error") return <h4>Ups!, {`${error}`}</h4>;
+  function getStoryCharacters() {
+    console.log("storyCharacter", characters.results.slice(0, 8));
+    return characters.results.slice(0, 8);
+  }
+
+  if (isError) return <h4>Ups!, {`${error}`}</h4>;
+  if (isLoading) return <Loading />;
 
   return (
     <div className="timeline">
       <div className="timeline__left">
         <div className="timeline__story">
-          {characters.results.slice(0, 8).map((post, index) => (
-            <Story stroryImage={post} key={index} />
-          ))}
-        </div>
-        <div className="timeline_posts">
-          {characters.results.map((post, index) => (
-            <Posts
-              user={post.name}
-              postImage={post.image}
-              likes={"100"}
-              timeStamp={"25min"}
-              key={index}
-            />
+          {getStoryCharacters().map((image, index) => (
+            <Story storyImage={image} key={index} />
           ))}
         </div>
         <InfiniteScroll
           dataLength={characters ? characters.results.length : 0}
-          next={() => fetchNextPage()}
+          next={() => fetchNextPage(characters)}
           hasMore={!!hasNextPage}
           loader={<Loading />}
-        ></InfiniteScroll>
+        >
+          <div className="timeline_posts">
+            {characters.results.map((post, index) => (
+              <Posts
+                user={post.name}
+                postImage={post.image}
+                likes={"100"}
+                timeStamp={"25min"}
+                key={index}
+              />
+            ))}
+          </div>
+        </InfiniteScroll>
       </div>
 
       <div className="timeline__right">

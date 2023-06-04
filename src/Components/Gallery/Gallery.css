@@ -32,6 +32,10 @@
   opacity: 0.8;
 }
 
+.gallery .images img{
+  width: 100%;
+}
+
 @media (max-width: 991px) {
   .gallery {
     column-count: 2;

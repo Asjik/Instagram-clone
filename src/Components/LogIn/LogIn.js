@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./LogIn.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function LogIn() {
   const [email, setEmail] = useState("");
@@ -11,8 +11,15 @@ function LogIn() {
   const handleClickLogin = () => navigateLogin("/");
 
   const handleLogIn = () => {
-    signInWithEmailAndPassword(auth, email, password);
-    handleClickLogin();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        handleClickLogin();
+        console.log("user Login", user);
+      })
+      .catch((error) => {
+        console.log(error.code, error.message);
+      });
   };
 
   return (

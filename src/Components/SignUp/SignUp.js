@@ -6,7 +6,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../../firebase";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -24,9 +24,14 @@ function SignUp() {
           updateProfile(auth.currentUser, {
             displayName: userName,
           })
-          
+            .then(() => {
+              console.log("Profile updated");
+            })
+            .catch((error) => {
+              console.log(error, "Error while updating profile!");
+            })
         );
-        handleClickSignup()
+        handleClickSignup();
       })
       .catch((err) => {
         alert(err);

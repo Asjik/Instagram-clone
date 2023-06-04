@@ -1,6 +1,6 @@
 import React from "react";
 import "./Posts.css";
-import { Avatar } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";

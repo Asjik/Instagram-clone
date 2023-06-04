@@ -14,12 +14,11 @@ function Gallery() {
     setImgSrc(src);
     setModel(true);
   };
-  const { characters, error, fetchNextPage, hasNextPage, status } =
+  const { characters, error, fetchNextPage, hasNextPage, isError, isLoading } =
     useCharacter();
 
-  if (status === "loading") return <Loading />;
-
-  if (status === "error") return <h4>Ups!, {`${error}`}</h4>;
+  if (isError) return <h4>Ups!, {`${error}`}</h4>;
+  if (isLoading) return <Loading />;
 
   return (
     <div>
@@ -47,11 +46,7 @@ function Gallery() {
                     key={index}
                     onClick={() => handlegetImage(item.image)}
                   >
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      style={{ width: "100%" }}
-                    ></img>
+                    <img src={item.image} alt={item.name}></img>
                   </div>
                 );
               })}
