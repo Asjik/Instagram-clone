@@ -29,7 +29,7 @@ function Timeline() {
         </div>
         <InfiniteScroll
           dataLength={characters ? characters.results.length : 0}
-          next={() => fetchNextPage(characters)}
+          next={() => fetchNextPage()}
           hasMore={!!hasNextPage}
           loader={<Loading />}
         >
